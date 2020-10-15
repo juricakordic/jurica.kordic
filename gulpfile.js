@@ -7,6 +7,7 @@ const
   htmlclean = require('gulp-htmlclean'),
   noop = require('gulp-noop'),
   sass = require('gulp-sass'),
+  concat = require('gulp-concat'),
 
   // folders
   src = 'src/',
@@ -24,13 +25,16 @@ function html(){
   const out = build + 'assets/css';
 
   return gulp.src([
-    // placeholder for bootstap sass file source
+   'node_modules/bootstrap/scss/bootstrap.scss',
     src + 'sass/main.scss'
   ])
     .pipe(sass().on('error', sass.logError))
-    .
+    .pipe(concat('bundle.css'))
+    .pipe(gulp.dest(out));
  }
 exports.html = html;
 exports.css = css;
+
+export.build = build;
 
 

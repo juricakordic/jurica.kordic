@@ -7160,4 +7160,6 @@ body {
   font-size: 100%; }
   body h1 {
     font-size: 120%;
-    color: darkblue; }
+    color: darkblue;
+    border: solid 1px darkblue;
+    padding: 20px; }

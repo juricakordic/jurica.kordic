@@ -32,9 +32,21 @@ function html(){
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest(out));
  }
+function watch(done){
+  gulp.watch(src + 'html/**/*',html);
+  gulp.watch(src + 'sass/**/*',css);
+
+  done();
+}
+
 exports.html = html;
 exports.css = css;
+exports.watch = watch;
 
-export.build = build;
+exports.build = gulp.parallel(exports.html, exports.css);
+
+exports.default = gulp.series(exports.build, exports.watch);
+
+
 
 

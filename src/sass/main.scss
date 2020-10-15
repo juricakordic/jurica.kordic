@@ -5,5 +5,7 @@ body {
     h1{
         font-size: 120%;
         color:$color;
+        border:solid 1px $color; 
+        padding: 20px;
     }
 }
